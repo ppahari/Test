@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Test</string>
+    <string name="row_title">RowTitle</string>
+    <string name="row_sub_title">Row Sub Title</string>
+    <string-array name="random_image"></string-array>
+
+
+</resources>
