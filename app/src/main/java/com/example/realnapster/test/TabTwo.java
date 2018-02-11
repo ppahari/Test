@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.content.res.TypedArray;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -16,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+
+import java.util.Random;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -92,7 +95,10 @@ public class TabTwo extends Fragment {
     }
 
     private void displayRandomImage() {
-        imageView.setImageResource(android.R.drawable.ic_lock_silent_mode);
+        TypedArray imgs = getResources().obtainTypedArray(R.array.random_image);
+        int id = imgs.getResourceId(new Random().nextInt(imgs.length()), -1);
+        imageView.setImageResource(id);
+        imgs.recycle();
     }
 
     @Override
@@ -121,7 +127,6 @@ public class TabTwo extends Fragment {
                         int hasCameraPermission = checkSelfPermission(mContext, Manifest.permission.CAMERA);
                         if (hasCameraPermission != PackageManager.PERMISSION_GRANTED) {
                             requestPermissions(new String[]{Manifest.permission.CAMERA}, 111);
-                            return;
                         }
                     }
                 });

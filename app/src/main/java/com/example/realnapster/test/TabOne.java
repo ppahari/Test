@@ -1,10 +1,10 @@
 package com.example.realnapster.test;
 
-        import android.animation.Animator;
         import android.app.Activity;
         import android.app.Fragment;
         import android.content.Context;
         import android.content.Intent;
+        import android.content.res.TypedArray;
         import android.os.Bundle;
         import android.support.annotation.Nullable;
         import android.support.v7.widget.LinearLayoutManager;
@@ -16,6 +16,7 @@ package com.example.realnapster.test;
 
         import java.util.ArrayList;
         import java.util.List;
+        import java.util.Random;
 
         import butterknife.BindView;
         import butterknife.ButterKnife;
@@ -70,14 +71,20 @@ public class TabOne extends Fragment implements ItemClickListener {
         mRecyclerView.setAdapter(adapter);
 
     }
+    private int getRandomImageID() {
+        TypedArray imgs = getResources().obtainTypedArray(R.array.random_image);
+        int id = imgs.getResourceId(new Random().nextInt(imgs.length()), -1);
+        imgs.recycle();
+        return id;
+    }
 
     private List<ListItem> getListItems() {
         List<ListItem> listItems = new ArrayList<>();
-        listItems.add(new ListItem(1, 1, R.mipmap.ic_launcher));
-        listItems.add(new ListItem(2, 2, R.mipmap.ic_launcher));
-        listItems.add(new ListItem(3, 3, R.mipmap.ic_launcher));
-        listItems.add(new ListItem(4, 4, R.mipmap.ic_launcher));
-        listItems.add(new ListItem(5, 5, R.mipmap.ic_launcher));
+        listItems.add(new ListItem(1, 1, getRandomImageID()));
+        listItems.add(new ListItem(2, 2, getRandomImageID()));
+        listItems.add(new ListItem(3, 3, getRandomImageID()));
+        listItems.add(new ListItem(4, 4, getRandomImageID()));
+        listItems.add(new ListItem(5, 5, getRandomImageID()));
 
         return listItems;
     }

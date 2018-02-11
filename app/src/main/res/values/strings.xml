@@ -2,7 +2,15 @@
     <string name="app_name">Test</string>
     <string name="row_title">RowTitle</string>
     <string name="row_sub_title">Row Sub Title</string>
-    <string-array name="random_image"></string-array>
-
+    <string-array name="random_image">
+        <item>@drawable/anchor</item>
+        <item>@drawable/bag</item>
+        <item>@drawable/coin</item>
+        <item>@drawable/cool</item>
+        <item>@drawable/facebook</item>
+        <item>@drawable/merge</item>
+        <item>@drawable/sail</item>
+        <item>@drawable/twitter</item>
+    </string-array>
 
 </resources>
